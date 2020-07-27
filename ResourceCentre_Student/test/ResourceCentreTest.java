@@ -112,16 +112,60 @@ public class ResourceCentreTest {
 	}
 	
 	@Test
-	public void doReturnCamcorderTest() {
+	public void doReturnCamcorderTest(ArrayList<Camcorder> a){
+		//fail("Not yet implemented");
+		// write your code here
+		ResourceCentreTest.viewAllCamcorder(a);
+		
+		Helper.line(80, "-");
+		System.out.println("CAMCORDER LIST");
+		Helper.line(80, "-");
+
+		String asset = Helper.readString("Enter asset tag > ");
+		boolean b = false;
+
+	
+		for (int i = 0; i < a.size(); i++) {
+			if (asset.equalsIgnoreCase(a.get(i).getAssetTag()) && a.get(i).isAvaliable() == false) {
+				a.get(i).setDueDate("");
+				a.get(i).setAvaliable(true);
+				b = true;
+				System.out.println("Camcorder " + a.get(i).getAssetTag() + " returned");
+			}
+
+		}
+		if (b == false) {
+			System.out.println("Invalid asset tag");
+		}
+	}
+	
+	@Test
+	public void doReturnChromebookTest(ArrayList<Chromebook> a){
 		//fail("Not yet implemented");
 		// write your code here
 		
+		Helper.line(80, "-");
+		System.out.println("CAMCORDER LIST");
+		Helper.line(80, "-");
+
+		String asset = Helper.readString("Enter asset tag > ");
+		boolean b = false;
+
+
+		for (int i = 0; i < a.size(); i++) {
+			if (asset.equalsIgnoreCase(a.get(i).getAssetTag()) && a.get(i).isAvaliable() == false) {
+				a.get(i).setDueDate("");
+				a.get(i).setAvaliable(true);
+				b = true;
+				System.out.println("Chromebook " + a.get(i).getAssetTag() + " returned");
+			}
+
+		}
+		if (b == false) {
+			System.out.println("Invalid asset tag");
+		}
 	}
-	@Test
-	public void doReturnChromebookTest() {
-		//fail("Not yet implemented");
-		// write your code here
-	}
+
 	
 	@After
 	public void tearDown() throws Exception {
